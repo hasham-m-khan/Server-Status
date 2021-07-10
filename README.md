@@ -10,6 +10,7 @@ Rest API for JK Series Games
 
 
 **INFORMATION**
+  * Valid queries: getinfo or getstatus
   * **your_site/api/serverlist/your_query**: Pings all servers in the list with your query
   * **your_site/api/serverlist/your_query/server_port/server_host**: Sends query to the server
   * **your_site/api/addserver/server_port/server_host**: Adds a server to the server list

@@ -1,4 +1,4 @@
-![Screenshot](screenshot.png)
+![Screenshot](serverstatus.PNG)
 
 # Server-Status
 Rest API for JK Series Games

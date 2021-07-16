@@ -5,12 +5,6 @@
 # Server-Status
 Rest API for JK Series Games
 
-**Instructions**
-  1) npm install
-  2) run cmd: node ./dst/index.js
-  3) ./serverlist/servers.json contains all server addresses
-
-
 **INFORMATION**
   * Valid queries: getinfo or getstatus
   * **your_site/api/serverlist/your_query**: Pings all servers in the list with your query

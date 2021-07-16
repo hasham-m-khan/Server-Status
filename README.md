@@ -1,3 +1,5 @@
+![Screenshot](frontend_1.PNG)
+![Screenshot](frontend_2.PNG)
 ![Screenshot](serverstatus.PNG)
 
 # Server-Status

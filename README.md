@@ -8,7 +8,7 @@ Rest API for JK Series Games
 ****
 
 **INFORMATION**
-  **The backend will send a getstatus or getinfo request to the game server through a udp connection and output the response in JSON format.**
+**The backend will send a getstatus or getinfo request to the game server through a udp connection and output the response in JSON format.**
   
   
   * Valid queries: getinfo or getstatus

@@ -56,7 +56,9 @@ export class HandleResponse {
         let cleanResponse = {
             "address": address,
             "players": [],
-            "status": { "statusCode": 200, "statusDesc": "OK" }
+            "status": { "statusCode": 200, "statusDesc": "OK" },
+            "totalBots": 0,
+            "totalPlayers": 0
         };
         msgArr.forEach(function (a, i, aa) {
             if (i & 1) {
@@ -70,32 +72,53 @@ export class HandleResponse {
         // Player info
         let playersStr = lastValue.slice(lastValue.indexOf('\n') + 1, lastValue.length);
         let playersArr = playersStr.split('\n');
+        let bots = 0;
+        let players = 0;
         playersArr.forEach(player => {
             let playerInfo = player.split(' ', 3);
             if (!playerInfo[1]) {
                 // do nothing - this is to ignore empty player strings
             }
             else {
+                let isBot;
+                if (+playerInfo[1] === 0) {
+                    isBot = true;
+                    bots++;
+                }
+                else {
+                    isBot = false;
+                    players++;
+                }
                 cleanResponse.players.push({
                     "ping": playerInfo[1],
                     "score": playerInfo[0],
                     "name": playerInfo[2],
-                    "isBot": (+playerInfo[1] === 0) ? true : false
+                    "isBot": isBot
                 });
             }
         });
+        cleanResponse["totalBots"] = bots;
+        cleanResponse["totalPlayers"] = players;
         // log(cleanResponse);
         return cleanResponse;
     }
     ;
     createErrorResponse(address, errorCode, errorDesc) {
         return {
-            address: address,
-            players: [],
-            status: {
-                statusCode: errorCode,
-                statusDesc: errorDesc
-            }
+            "address": address,
+            "players": [],
+            "totalBots": 0,
+            "totalPlayers": 0,
+            "status": {
+                "statusCode": errorCode,
+                "statusDesc": errorDesc
+            },
+            "sv_hostname": "<no_response>",
+            "sv_maxclients": "0",
+            "gamename": "--",
+            "g_gametype": "--",
+            "protocol": "--",
+            "mapname": "--"
         };
     }
     ;

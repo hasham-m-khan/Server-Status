@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap')
+@import '../../_colors.sass'
+
+// TABLE FORMAT - NOT RESPONSIVE
+
+// .data-container
+//     position: relative
+//     top: 4vh
+//     margin: 16px
+//     & table
+//         width: 100%
+//         border-spacing: 0
+//         border: 1px dashed $accent
+//         & thead
+//             & tr
+//                 background-color: $bgCompliment
+//                 & td
+//                     padding-left: 8px
+//                     border-bottom: 1px solid $accent
+//                     max-width: 200px
+//                     overflow: hidden
+//                     &:first-child
+//                         border-right: 1px solid $accent
+//         & tbody
+//             & tr
+//                 font-family: 'Courier Prime', monospace
+//                 &:hover
+//                     background-color: rgb(255, 255, 255)
+//                     color: rgb(0, 0, 0)
+//                 & td
+//                     padding-left: 8px
+//                     padding-right: 8px
+//                     border-bottom: 1px dashed $accent
+//                     max-width: 200px
+//                     overflow: hidden
+//                     text-overflow: ellipsis
+//                     white-space: nowrap
+//                     &:first-child
+//                         border-right: 1px solid $accent
+    
+
+// @media only screen and (max-width: 600px)
+//     .data-container
+//         position: relative
+//         top: 6vh
+//         margin: 0
+//         & table
+//             width: 100%
+//             & tr 
+//                 & td
+//                     width: 100%
+
+
+// GRID FORMAT - RESPONSIVE
+.data-container
+    position: relative
+    top: 50px
+    width: 99%
+    margin: 8px
+    & .data-filter
+        display: flex
+        flex-grow: 1
+        flex-wrap: nowrap
+        align-items: center
+        margin-top: 16px
+        & select
+            flex-grow: .05
+            outline: none
+            border: none
+            background-color: $accent
+            color: $fontColor
+            height: 30px
+            text-align-last: center
+        & input:first-of-type
+            flex-grow: .99
+            outline: none
+            border: none
+            height: 30px
+            padding: 0
+            padding-left: 8px
+            box-sizing: border-box
+        & input:last-of-type
+            flex-grow: .05
+            outline: none
+            border: none
+            background-color: $accent
+            color: $fontColor
+            height: 30px
+            text-align-last: center
+            transition: .4s
+            &:hover
+                background-color: darken($accent, 5%)
+    & .response-headers
+        display: grid
+        grid-template-columns: repeat(9, 1fr)
+        border-bottom: 1px solid $accent
+        background-color: $bgCompliment
+        margin-top: 16px
+        & div
+            padding: 0px 0px 0px 8px !important
+            &:first-of-type
+                border-right: 1px solid $accent
+    & .response-data
+        display: grid
+        grid-template-columns: repeat(9, 1fr)
+        & div
+            border-bottom: 1px dashed $accent
+            max-width: 1
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+            padding: 0px 0px 0px 8px !important
+            &:first-of-type
+                border-right: 1px solid $accent
+                background-color: darken($bgCompliment2, 5%)
+        &:hover, &:hover div
+            background-color: $bgHighlight
+            color: darken($fontColor, 100%)
+
+
+@media only screen and (max-width: 600px)
+    .data-container
+        width: unset !important
+        & .response-headers
+            grid-template-columns: repeat(1, 1fr)
+            border: unset !important
+            margin-bottom: 16px
+            & div
+                border: 1px solid lighten($bgCompliment, 10%) !important
+        & .response-data
+            grid-template-columns: repeat(1, 1fr)
+            border: 1px solid $bgHighlight
+            border-bottom: 3px solid $bgHighlight
+            margin-bottom: 16px
+            & div
+                padding: 8px !important
+                &:first-of-type
+                    border: unset
+                    background-color: $bgHighlight
+                    color: darken($fontColor, 100%)
+            & div:last-of-type
+                border: unset

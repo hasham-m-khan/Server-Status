@@ -19,5 +19,7 @@ export interface ServerResponse {
     [key: string]: string | number | Server | Player[] | Status,
     address: Server,
     players: Player[],
-    status: { statusCode: number, statusDesc: string }
+    status: Status
+    totalBots: number,
+    totalPlayers: number
 }

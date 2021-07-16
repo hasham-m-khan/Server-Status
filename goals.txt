@@ -1,0 +1,5 @@
+Game changes: 
+[	x	]	-	getinfo - outputs json
+[	x	]	-	getstatus - outputs json[  ]	-	connect to game server chat through a web browser
+[ In Progress   ]	-	Built a web application for JKA server status, connect to a server, server chat, etc
+	

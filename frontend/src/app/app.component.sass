@@ -1,0 +1,185 @@
+@import '../_colors.sass'
+// @import '../_variables.sass'
+// @import '../_mixins.sass'
+    
+// $breakpoints: (phone: 640px, tablet: 768px, desktop: 1024px ) !default
+
+// nav
+//     width: 100%
+//     height: 40px
+//     position: fixed
+//     top: 0
+//     left: 0
+//     right: 0
+//     z-index: 99
+//     padding: 1rem 2rem
+//     background-color: rgb(0, 0, 0)
+//     border-bottom: 3px solid $accent
+//     .container
+//         max-width: 1280px
+//         height: 100%
+//         margin: 0 auto
+//         display: flex
+//         align-items: center
+//         justify-content: space-between
+//         h4
+//             color: $fontColor
+//             font-size: 16px
+//             font-weight: 600
+//             // letter-spacing: 2px
+//             text-transform: uppercase
+//         .hamburger
+//             display: block
+//             position: relative
+//             z-index: 1
+//             user-select: none
+//             appearance: none
+//             border: none
+//             outline: none
+//             background: none
+//             cursor: pointer
+//             span
+//                 display: block
+//                 width: 30px
+//                 height: 4px
+//                 margin-bottom: 5px
+//                 position: relative
+//                 background-color: $fontColor
+//                 border-radius: 3px
+//                 z-index: 1
+//                 transform-origin: 0 0
+//                 transition: 0.4s
+//                 &:nth-child(3)
+//                     background-color: $accent
+//             &.is-active span:nth-child(1)
+//                 transform: translate(0px, 0px) rotate(45deg)
+//             &.is-active span:nth-child(3)
+//                 transform: translate(-3px, 3px) rotate(-45deg)
+//             &.is-active span:nth-child(2)
+//                 opacity: 0
+//                 transform: translateX(15px)
+//         .menu
+//             display: none
+//             flex: 1 1 0%
+//             justify-content: flex-end
+//             margin: 0 - 16px
+//             a
+//                 margin: 0 16px
+//                 transition: 0.4s
+//                 padding: 2px 16px
+//                 border-radius: 99px
+//                 &.is-active
+//                     background-color: $accent
+//                     &:hover
+//                         background-color: mix($accent, $background)
+//                         color: $fontColor
+//                 &:hover
+//                     color: $accent
+
+
+// @include media($tablet)
+//     nav
+//         .container
+//             .menu
+//                 display: flex
+//             .hamburger
+//                 display: none
+//                 background-color: rgb(255, 255, 255)
+
+
+
+nav
+    align-items: center
+    flex-wrap: nowrap
+    background-color: $bgCompliment
+    border-bottom: 3px solid $accent
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 99
+    & .logo
+        flex-grow: 2
+        & span
+            margin-left: 16px
+        & .hamburger
+            display: none
+            z-index: 2
+            user-select: none
+            appearance: none
+            border: none
+            outline: none
+            background: none
+            cursor: pointer
+            margin-bottom: 10px
+            margin-top: 10px
+            margin-right: 8px
+            border-radius: 3px
+            & span
+                display: block
+                width: 30px
+                height: 4px
+                margin-bottom: 3px
+                background-color: $accent
+                border-radius: 99px
+                transition: 0.4s
+                z-index: 3
+            &.is-active span:nth-child(1)
+                // background-color: $fontColor
+                transform: translate(0px, 8px) rotate(45deg) scale(0.7)
+            &.is-active span:nth-child(2)
+                opacity: 0
+                transform: translateX(15px)
+            &.is-active span:nth-child(3)
+                transform: translate(0px, -6px) rotate(-45deg) scale(0.7)
+    & .menu
+        flex-grow: 1
+        min-width: 300px
+        max-width: 300px
+        display: flex
+        justify-content: space-between
+        align-content: flex-end
+        margin-right: 16px
+        padding: 12px 12px 12px
+        & div
+            &.is-active a
+                color: $fontColor
+            & a:hover
+                color: $fontColor
+
+
+@media only screen and (max-width: 600px)
+    nav
+        position: fixed
+        top: 0
+        width: 100%
+        flex-wrap: wrap
+        flex-basis: 100%
+        border: none
+        background-color: $bgColor
+        & .logo
+            display: flex
+            justify-content: space-between
+            align-items: center
+            align-content: space-between
+            flex-basis: 100%
+            background-color: $bgCompliment
+            border-bottom: 3px solid $accent
+            & .hamburger
+                display: block
+                z-index: 99
+        & .menu
+            display: flex
+            flex-basis: 100%
+            flex-grow: 1
+            width: 100%
+            background-color: $bgCompliment2
+            margin: 0px 0px 0px 0px
+            padding: 0px 0px 0px 0px
+            & div
+                width: 100%
+                padding-top: 4px
+                padding-bottom: 4px
+                padding-left: 12px
+                border-bottom: 1px solid $accent
+            &.is-active
+                display: none

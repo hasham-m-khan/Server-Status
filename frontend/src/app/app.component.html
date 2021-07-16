@@ -1,0 +1,21 @@
+<div class="container">
+	<nav class="flex-grid">
+		<div class="logo flex-grid--cell">
+			<span>JKStats</span>
+			<div class="hamburger" [ngClass]="{'is-active': isActive}" (click)="toggleActive()">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<!-- <div class="flex-grid--cell filler"></div> -->
+		<div class="menu flex-grid--cell flex-grid" [ngClass]="{'is-active': !isActive}">
+			<div class="flex-grid--1of4 is-active"><a href="#">Home</a></div>
+			<div class="flex-grid--1of4"><a  routerLink="/server-status" routerLinkActive="active">Server Status</a></div>
+			<div class="flex-grid--1of4"><a href="#">JK Chat</a></div>
+			<div class="flex-grid--1of4"><a href="#">About</a></div>
+		</div>
+	</nav>
+	<router-outlet></router-outlet>
+</div>
+

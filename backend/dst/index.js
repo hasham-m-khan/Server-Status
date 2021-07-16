@@ -1,10 +1,14 @@
 import express from 'express';
+import cors from 'cors';
 import fs from 'fs-extra';
 import { log } from './log.js';
 import { HandleResponse } from './handleResponse.js';
 import { validate } from './validate.js';
 const app = express();
 const port = process.env.PORT || "3000";
+app.use(cors({
+    origin: '*',
+}));
 app.get('/api/serverlist/:cmd/', async (req, res) => {
     const requests = await fs.readJson('./serverlist/servers.json');
     const rs = new HandleResponse;

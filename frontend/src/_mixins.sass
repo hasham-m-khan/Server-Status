@@ -1,0 +1,18 @@
+// mixin
+=media($type1, $size1: null, $type2: null, $size2: null)
+    @if (($type1) and ($size1)) and (($type2) and ($size2))
+        @media ($type1: $size1) and ($type2: $size2)
+            @content
+    @else if ($type1) and ($size1) and not ($type2) and not ($size2)
+        @media ($type1: $size1)
+            @content
+    @else if ($type1) and not ($size1) and not ($type2) and not ($size2)
+        $map: $type1
+        @if map-has-key($map, "type2") and map-has-key($map, "size2")
+            @media (#{map-get($map, "type1")}: #{map-get($map, "size1")}) and (#{map-get($map, "type2")}: #{map-get($map, "size2")})
+                @content
+        @else
+            @media (#{map-get($map, "type1")}: #{map-get($map, "size1")})
+                @content
+    @else
+        @error "error..."

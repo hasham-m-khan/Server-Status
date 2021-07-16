@@ -1,0 +1,67 @@
+
+<!-- TABLE FORMAT -->
+<!-- <div class="data-container">
+        <table>
+            <thead>
+                <tr>
+                    <td (click)="sortData('sv_hostname', false)">name</td>
+                    <td>address</td>
+                    <td (click)="sortData('mapname', false)">map</td>
+                    <td (click)="sortData('totalPlayers', false)">players</td>
+                    <td (click)="sortData('totalBots', false)">bots</td>
+                    <td (click)="sortData('sv_maxclients', false)">max_clients</td>
+                    <td (click)="sortData('gamename', false)">mod</td>
+                    <td (click)="sortData('g_gametype', true)">gametype</td>
+                    <td (click)="sortData('protocol', false)">game</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let server of serverResponses">
+                    <td>{{ server.sv_hostname }}</td>
+                    <td>{{ server.address.host }}:{{ server.address.port }}</td>
+                    <td>{{ server.mapname }}</td>
+                    <td>{{ server.totalPlayers }}</td>
+                    <td>{{ server.totalBots }}</td>
+                    <td>{{ server.sv_maxclients }}</td>
+                    <td>{{ server.gamename }}</td>
+                    <td>{{ +server.protocol < 25 ? gametype[+server.g_gametype] : gametype[9] }}</td>
+                    <td>{{ protocol[+server.protocol] }}</td>
+                </tr>
+            </tbody>
+        </table>
+</div> -->
+
+<!-- GRID FORMAT -->
+<div class="data-container">
+    <div class="data-filter">
+        <select name="123" id="123">
+            <ng-container *ngFor="let filter of filters; let i = index">
+                <option value="i">{{filter}}</option>
+            </ng-container>
+        </select>
+        <input type="text">
+        <input type="button" value="search">
+    </div>
+    <div class="response-headers">
+        <div (click)="sortData('sv_hostname', false)">name</div>
+        <div>address</div>
+        <div (click)="sortData('mapname', false)">map</div>
+        <div (click)="sortData('totalPlayers', false)">players</div>
+        <div (click)="sortData('totalBots', false)">bots</div>
+        <div (click)="sortData('sv_maxclients', false)">max_clients</div>
+        <div (click)="sortData('gamename', false)">mod</div>
+        <div (click)="sortData('g_gametype', true)">gametype</div>
+        <div (click)="sortData('protocol', false)">game</div>
+    </div>
+    <div class="response-data" *ngFor="let server of serverResponses">
+        <div>{{ server.sv_hostname }}</div>
+        <div>{{ server.address.host }}:{{ server.address.port }}</div>
+        <div>{{ server.mapname }}</div>
+        <div>{{ server.totalPlayers }}</div>
+        <div>{{ server.totalBots }}</div>
+        <div>{{ server.sv_maxclients }}</div>
+        <div>{{ server.gamename }}</div>
+        <div>{{ +server.protocol < 25 ? jogametype[+server.g_gametype] : jagametype[+server.g_gametype] }}</div>
+        <div>{{ protocol[+server.protocol] }}</div>
+    </div>
+</div>

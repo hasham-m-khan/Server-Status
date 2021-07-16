@@ -5,7 +5,12 @@
 # Server-Status
 Rest API for JK Series Games
 
+****
+
 **INFORMATION**
+  **The backend will send a getstatus or getinfo request to the game server through a udp connection and output the response in JSON format.**
+  
+  
   * Valid queries: getinfo or getstatus
   * **your_site/api/serverlist/your_query**: Pings all servers in the list with your query
   * **your_site/api/serverlist/your_query/server_port/server_host**: Sends query to the server
@@ -13,3 +18,5 @@ Rest API for JK Series Games
   * **your_site/api/removeserver/server_port/server_host**: Removes a server from the server list
     
     _Example: localhost:3000/api/serverlist/getstatus/29070/255.168.0.1_
+    
+

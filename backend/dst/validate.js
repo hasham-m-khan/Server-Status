@@ -1,3 +1,17 @@
+/*
+
+    This function will validate ip address and hosts and return an object.
+
+    Sample input:
+        { host: "255.abc.0.1", port: 00000}
+
+    output:
+        isValid: false;
+        status: {
+            statusCode: 422,
+            statusDesc: "Invalid address"
+        };
+*/
 export function validate(address) {
     let isHostValidStr = "VALID";
     let isPortValidStr = "VALID";
@@ -10,10 +24,12 @@ export function validate(address) {
             statusDesc: "OK"
         }
     };
+    // Check for valid IP
     if (!/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(address.host)) {
         isHostValid = false;
         isHostValidStr = "INVALID";
     }
+    // Check for valid port
     if (+address.port < 0 || +address.port > 65535 || typeof +address.port != 'number' || +address.port % 1 != 0) {
         isPortValid = false;
         isPortValidStr = "INVALID";

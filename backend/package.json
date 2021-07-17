@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dst/index.js"
   },
   "author": "",
   "license": "ISC",
